@@ -70,7 +70,7 @@ public class ArithmeticEvaluator {
             // addition
             if (removeChar('+'))
                 result += parseTerm();
-                // subtraction
+            // subtraction
             else if (removeChar('-'))
                 result -= parseTerm();
             else
@@ -86,7 +86,7 @@ public class ArithmeticEvaluator {
             // multiplication
             if (removeChar('*'))
                 result *= parseFactor();
-                // division
+            // division
             else if (removeChar('/')) {
                 denom = parseFactor();
                 if (denom != 0.)
@@ -130,27 +130,20 @@ public class ArithmeticEvaluator {
             String func = expression.substring(startPos, this.position);
             result = parseFactor();
             switch (func) {
-                case "sqrt":
-                    result = Math.sqrt(result);
-                    break;
-                case "sin":
-                    result = Math.sin(result);
-                    break;
                 case "cos":
-                    result = Math.cos(result);
-                    break;
+                    result = Math.cos(result); break;
+                case "sin":
+                    result = Math.sin(result); break;
                 case "tan":
-                    result = Math.tan(result);
-                    break;
-                case "ln":
-                    result = Math.log(result);
-                    break;
+                    result = Math.tan(result); break;
+                case "sqrt":
+                result = Math.sqrt(result); break;
                 case "log":
-                    result = Math.log10(result);
-                    break;
+                    result = Math.log10(result); break;
+                case "ln":
+                result = Math.log(result); break;
                 case "exp":
-                    result = Math.exp(result);
-                    break;
+                    result = Math.exp(result); break;
                 default:
                     throw new RuntimeException("Unknown function: " + func);
             }
